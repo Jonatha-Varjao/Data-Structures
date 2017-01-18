@@ -59,6 +59,7 @@ node *getNO(int valor)
 
 void queue(fila *queue, int data)
 {
+	
 	node *new = getNO(data);
 	if(queue->primeiro == NULL)
 	{
@@ -119,7 +120,7 @@ void queueFirst(fila *queue, int data)
 void printQueue(fila *queue)
 {
 	node *aux = queue->primeiro;
-	if(queue == NULL){printf("FILA VAZIA\n");}
+	if(queue->primeiro == NULL){printf("FILA VAZIA\n");}
 	else
 	{
 		while(aux != NULL)
@@ -157,4 +158,19 @@ void deQueueLast(fila *queue)
 		printf("Deqeue Last [%d]\n",aux->info);
 		free(aux);
 	}
+}
+
+
+void Destroy(fila *queue)
+{
+	node *aux,*auxFinal;
+	aux = queue->primeiro;
+	while(aux != NULL)
+	{
+		auxFinal = aux;
+		aux = aux->prox;
+		queue->primeiro = aux;
+		free(auxFinal);		
+	}
+
 }

@@ -25,9 +25,9 @@ void createQeue(fila *queue);
 node *getNO(int valor);
 
 //inserir
-void queue(fila *queue, int data);
+void queue(fila *queue);
 //inserir inicio
-void queueFirst(fila *queue,int data);
+void queueFirst(fila *queue);
 
 //remover
 void deQueue(fila *queue);
@@ -38,15 +38,13 @@ void deQueueLast(fila *queue);
 void printQueue(fila *queue);
 
 //busca na fila
-void searchQueue(fila *queue, int data);
+void searchQueue(fila *queue);
 
 
 
 
-void createQeue(fila *queue)
-{
-	queue->primeiro = queue->ultimo = NULL;
-}
+void createQeue(fila *queue){queue->primeiro = queue->ultimo = NULL;}
+
 
 node *getNO(int valor)
 {
@@ -59,8 +57,11 @@ node *getNO(int valor)
 	return new;
 }
 
-void queue(fila *queue, int data)
+void queue(fila *queue)
 {
+	int data;
+	printf("File Data:\n");
+	scanf("%d", &data);
 	node *new = getNO(data);
 	if(queue->primeiro == NULL)
 	{
@@ -74,8 +75,11 @@ void queue(fila *queue, int data)
 	}
 
 }
-void queueFirst(fila *queue, int data)
+void queueFirst(fila *queue)
 {
+	int data;
+	printf("File Data:\n");
+	scanf("%d", &data);
 	node *new = getNO(data);
 	if(queue->primeiro == NULL)
 	{
@@ -89,16 +93,22 @@ void queueFirst(fila *queue, int data)
 
 void printQueue(fila *queue)
 {
-	node *aux = queue->primeiro;
-	if(queue!= NULL)
+
+	if(queue->primeiro !=NULL)
 	{
-		while(aux != NULL)
+		printf("Printing the Queue Files:\n");
+		node *aux = queue->primeiro;
+		if(queue!= NULL)
 		{
-			printf("[%d]", aux->info );
-			aux = aux->prox;
+			while(aux != NULL)
+			{
+				printf("[%d]", aux->info );
+				aux = aux->prox;
+			}
+			printf("\n");
 		}
-		printf("\n");
-	}
+	}else
+		printf("EMPTY QUEUE\n");
 }
 
 void deQueue(fila *queue)
@@ -138,12 +148,15 @@ void deQueueLast(fila *queue)
 	}
 }
 //SE QUISER BOTAR UMA VARIAVEL COUNT PRA ACHAR A POSIÇÃO NA FILA
-void searchQueue(fila *queue, int data)
+void searchQueue(fila *queue)
 {
 
 	if (queue->primeiro == NULL){printf("FILA VAZIA\n");}
 	else
 	{
+		int data;
+		printf("Data to Search:\n");
+		scanf("%d", &data);
 		int pos = 1;
 		node *aux = queue->primeiro;
 		while(aux != NULL)
@@ -163,4 +176,19 @@ void searchQueue(fila *queue, int data)
 			printf("[%d]NOT FOUND\n", data);
 		}
 	}
+}
+
+
+void Destroy(fila *queue)
+{
+	node *aux,*auxFinal;
+	aux = queue->primeiro;
+	while(aux != NULL)
+	{
+		auxFinal = aux;
+		aux = aux->prox;
+		queue->primeiro = aux;
+		free(auxFinal);		
+	}
+
 }
