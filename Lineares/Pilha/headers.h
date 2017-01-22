@@ -1,17 +1,21 @@
 #include <stdio.h>
-#define MAX "n" // definir o limite da pilha
+#define MAX 10 // definir o limite da pilha
+#include <string.h>
 
 typedef struct node
 {
-	int data;
-	struct node *next;
+	char data;
+	struct node *prox;
 }node;
 
 typedef struct pilha
 {
-	node *topo
+	node *topo;
 	int tam;
 }stack;
+
+//Atribuições do NO
+
 
 //criar pilha
 void createStack(stack *p);
@@ -20,10 +24,10 @@ void createStack(stack *p);
 void isEmpty(stack *p);
 
 //empilha
-void stack(stack *p, int data);
+void push(stack *p);
 
 //desempilha
-void unstack(stack *p);
+void pop(stack *p);
 
 //imprime pilha
 void printStack(stack *p);
@@ -33,3 +37,80 @@ void search(stack *p);
 
 //destruir pilha
 void deleteStack(stack *p);
+
+node *getNO(char *data)
+{
+	node *new = (node*)malloc(sizeof(node));
+	strcpy((char*)&new->data, data);
+	new->prox = NULL;
+}
+
+
+void createStack(stack *p)
+{
+	p->tam = -1;
+	p->topo = NULL;
+}
+
+
+void printStack(stack *p)
+{
+	node *aux;
+	aux = p->topo;
+	while(aux != NULL)
+	{
+		printf("%c ", aux->data);
+		aux = aux->prox;
+	}
+}
+
+
+void push(stack *p)
+{
+	char data;
+	scanf("\n %c",&data);
+	node *new;
+	new = getNO(&data);
+	
+	if(p->tam == -1)
+	{		
+		p->topo = new;
+		p->tam++;
+			;
+	}else
+	{
+		new->prox = p->topo;
+		p->topo = new;
+		p->tam++;
+	}
+}
+
+void pop(stack *p)
+{
+	node *aux;
+	aux = p->topo;
+	if(p->topo != NULL)
+	{
+		p->topo = p->topo->prox;
+		printf("\nPOPED:[%c]\n",aux->data);
+		free(aux);
+	}else
+		printf("EMPTY STACK\n");
+}
+void deleteStack(stack *p)
+{
+	node *aux = p->topo;
+	if( p->topo != NULL )
+	{
+		node *temp;
+		while(aux != NULL)
+		{
+			temp = aux;
+			aux = aux->prox;
+			p->topo = aux;
+			printf("DELETING [%c]\n", temp->data);
+			free(temp);
+		}
+	}else
+		printf("EMPTY STACK\n");
+}
