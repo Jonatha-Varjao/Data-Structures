@@ -1,7 +1,7 @@
 #include <stdio.h>
-#define MAX 10 // definir o limite da pilha
+#define MAX 100 
 #include <string.h>
-
+int top,stackString[MAX];
 typedef struct node
 {
 	char data;
@@ -113,4 +113,20 @@ void deleteStack(stack *p)
 		}
 	}else
 		printf("EMPTY STACK\n");
+}
+
+
+void push2(char x)
+{
+	if (top == MAX-1)
+		printf("OVERFLOW");
+	else
+	{
+		stackString[++top] = x ;
+	}
+}
+
+void pop2()
+{
+	printf("%c", stackString[top--]);
 }

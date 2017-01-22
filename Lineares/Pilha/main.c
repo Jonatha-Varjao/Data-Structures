@@ -3,6 +3,8 @@
 int main(int argc, char const *argv[])
 {
 	stack *P;
+	char word[100];
+
 	
 	int menu;
 	do
@@ -12,10 +14,14 @@ int main(int argc, char const *argv[])
 		printf("\n 2: Display Stack");	
 		printf("\n 3: Push");
 		printf("\n 4: Pop");	
-		//printf("\n 5: Reverse String");	
+		
 		printf("\n 5: Delete");
-		printf("\n 6: EXIT");	
-		printf("\n\n Enter your option: ");	
+		printf("\n 6: Reverse String");	
+		printf("\n 7: EXIT");
+		if(menu == 6)
+			printf("\n\n Enter your String: ");
+		else
+			printf("\n\n Enter your Option: ");
 		scanf("%d", &menu);
 		switch(menu)
 		{
@@ -43,9 +49,24 @@ int main(int argc, char const *argv[])
 				system("clear");
 				deleteStack(&P);
 				break;
+			case 6:
+				system("clear");
+				printf("ENTER THE STRING\n");
+				scanf("%[^\n]s",word);
+				printf("%s\n",word);
+				int len = strlen(word), i;
+				for(i=0; i<=len; i++)
+					push2(word[i]);
+				
+				system("clear");
+
+				for(i=0; i<=len; i++)
+					pop2();
+				system("clear");
+				break;			
 				
 		}
-	}while(menu != 6);
+	}while(menu != 7);
 
 	return 0;
 }
