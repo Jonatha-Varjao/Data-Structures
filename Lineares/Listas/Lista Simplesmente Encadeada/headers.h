@@ -29,6 +29,7 @@ void insertTail(lista *l, int data);
 
 //inserir no meio
 //void insertMiddle(lista *l, int data);
+void insertOrdered(lista *l, int data);
 
 //inserir em qualquer posição
 void insertAny(lista *l, int data, int pos);
@@ -116,6 +117,36 @@ void insertHead(lista *l,int data)
 		new = getNo(data);
 		new->next = l->head;
 		l->head = new;
+	}
+}
+void insertOrdered(lista *l, int data)
+{
+	if(l->head == NULL)
+	{
+		node *new = (node*)malloc(sizeof(node));
+		new = getNo(data);
+		l->head = new;
+	}else
+	{
+		node *prev,*temp,*new = (node*)malloc(sizeof(node));
+		new = getNo(data);
+		temp = l->head;
+		if(temp->data < data)
+		{
+			new->next = temp;
+			l->head = new;
+		}else
+		{
+
+			while(temp != NULL && temp->data > data)
+			{
+				printf("TEMP < DATA\n");
+				prev = temp;
+				temp = temp->next;
+			}
+			new->next = temp;
+			prev->next = new;
+		}
 	}
 }
 

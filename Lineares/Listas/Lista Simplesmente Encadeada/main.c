@@ -14,11 +14,12 @@ int main()
 		printf("\n 3 : Insert Head");
 		printf("\n 4 : Insert Tail");
 		printf("\n 5 : Insert Any Pos");
-		printf("\n 6 : Remove Head");
-		printf("\n 7 : Remove Tail");		
-		printf("\n 8 : Remove Any Pos");
-		printf("\n 9 : Destroy List");
-		printf("\n 10: Search Element");	
+		printf("\n 6 : Insert in Order");
+		printf("\n 7 : Remove Head");
+		printf("\n 8 : Remove Tail");		
+		printf("\n 9 : Remove Any Pos");
+		printf("\n 10 : Destroy List");
+		printf("\n 11: Search Element A");	
 		printf("\n 0 : EXIT\n");		
 		scanf("%d",&menu);
 		switch(menu)
@@ -56,23 +57,29 @@ int main()
 				break;
 			case 6:
 				system("clear");
-				removeHead(&l);
+				printf("INSERT DATA:\n");
+				scanf("%d", &data);
+				insertOrdered(&l,data);
 				break;
 			case 7:
 				system("clear");
-				removeTail(&l);
+				removeHead(&l);
 				break;
 			case 8:
+				system("clear");
+				removeTail(&l);
+				break;
+			case 9:
 				system("clear");
 				printf("INSERT POS:\n");
 				scanf("%d", &pos);
 				removeAny(&l,pos);
 				break;
-			case 9:
+			case 10:
 				system("clear");
 				Destroy(&l);
 				break;
-			case 10:
+			case 11:
 				system("clear");
 				printf("INSERT DATA TO SEARCH:\n");
 				scanf("%d", &data);
