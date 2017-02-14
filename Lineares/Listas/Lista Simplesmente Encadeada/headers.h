@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <malloc.h>
 
 //estrutura contendo os dados
 typedef struct node
@@ -68,7 +69,7 @@ node *getNo(int x)
 
 void printList(lista *l)
 {
-	if(l->head == NULL)printf("EMPTY LIST\n");
+	if(l->head == NULL) printf("EMPTY LIST\n");
 	else
 	{
 		node *aux = l->head;
@@ -77,7 +78,7 @@ void printList(lista *l)
 			printf("[%d]->",aux->data);
 			aux = aux->next;
 		}
-		
+		//OrdenaLista(l);		
 	}
 }
 
@@ -119,6 +120,7 @@ void insertHead(lista *l,int data)
 		l->head = new;
 	}
 }
+
 void insertOrdered(lista *l, int data)
 {
 	if(l->head == NULL)
@@ -149,6 +151,7 @@ void insertOrdered(lista *l, int data)
 		}
 	}
 }
+
 
 void insertTail(lista *l,int data)
 {
