@@ -3,7 +3,7 @@
 int main()
 {
 	//TODO CODE HERE//
-	fila *Queue;
+	fila Queue;
 	int menu;
 	do
 	{
@@ -27,7 +27,6 @@ int main()
 				break;
 			case 2:
 				system("clear");
-				printf("All Files Display\n");
 				printQueue(&Queue);
 				break;
 			case 3:
