@@ -58,7 +58,7 @@ node *getNO(int info,float prior)
 void printQueue(fila *queue)
 {
 	node *aux = queue->primeiro;
-	if(queue == NULL){printf("FILA VAZIA\n");}
+	if(aux == NULL){printf("FILA VAZIA\n");}
 	else
 	{
 		while(aux != NULL)

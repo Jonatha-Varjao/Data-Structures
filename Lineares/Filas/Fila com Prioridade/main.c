@@ -7,7 +7,7 @@ int main()
 	int menu;
 	do
 	{
-		printf("\n\n ***** MENU *****");	
+		printf("\n\n ***** MENU *****");
 		printf("\n 1: Create a Queue");	
 		printf("\n 2: Display the Queue");	
 		printf("\n 3: Add to the Queue");
