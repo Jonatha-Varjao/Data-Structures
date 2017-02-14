@@ -12,7 +12,7 @@ typedef struct no
 }node;
 
 //ponteiros da fila (inicio,fim)
-typedef struct queue
+typedef struct fila
 {
   node *primeiro;
   node *ultimo;
@@ -130,8 +130,15 @@ void queue(fila *queue)
 
 void deQueue(fila *queue)
 {
-	if (queue->primeiro == NULL){printf("FILA VAZIA\n"); }
-	else
+	if ((queue->primeiro == NULL)&& (queue->ultimo == NULL)){printf("FILA VAZIA\n"); }
+	else if(queue->primeiro->prox == NULL)
+	{
+		node *aux;
+		aux = queue->primeiro;
+		queue->primeiro = queue->ultimo = NULL;
+		printf("Dequeue [%d] \n",aux->info);
+		free(aux);
+	}else 
 	{
 		node *aux;
 		aux = queue->primeiro;
@@ -145,14 +152,22 @@ void deQueue(fila *queue)
 //Doubled Link Queue, just use ->ant, pretty simple
 void deQueueLast(fila *queue)
 {
-	if(queue->primeiro == NULL){printf("FILA VAZIA\n");}
+	if((queue->primeiro == NULL)&& (queue->ultimo == NULL)){printf("FILA VAZIA\n");}
 	else
 	{
 		node *aux = queue->ultimo;
-		queue->ultimo = queue->ultimo->ant;
-		queue->ultimo->prox = NULL;
-		printf("Dequeue Last Pos [%d]\n",aux->info);
-		free(aux);
+		if(aux == queue->primeiro)
+		{
+			printf("Dequeue [%d] \n",aux->info);
+			queue->primeiro = queue->ultimo = NULL;
+			free(aux);
+		}else
+		{
+			queue->ultimo = queue->ultimo->ant;
+			queue->ultimo->prox = NULL;
+			printf("Dequeue Last Pos [%d]\n",aux->info);
+			free(aux);
+		}
 	}
 }
 

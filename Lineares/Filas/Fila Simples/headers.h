@@ -60,7 +60,7 @@ node *getNO(int valor)
 void queue(fila *queue)
 {
 	int data;
-	printf("File Data:\n");
+	printf("Number:\n");
 	scanf("%d", &data);
 	node *new = getNO(data);
 	if(queue->primeiro == NULL)
@@ -78,7 +78,7 @@ void queue(fila *queue)
 void queueFirst(fila *queue)
 {
 	int data;
-	printf("File Data:\n");
+	printf("Number:\n");
 	scanf("%d", &data);
 	node *new = getNO(data);
 	if(queue->primeiro == NULL)
@@ -96,7 +96,7 @@ void printQueue(fila *queue)
 
 	if(queue->primeiro !=NULL)
 	{
-		printf("Printing the Queue Files:\n");
+		printf("Printing the Queue:\n");
 		node *aux = queue->primeiro;
 		if(queue!= NULL)
 		{
@@ -108,7 +108,7 @@ void printQueue(fila *queue)
 			printf("\n");
 		}
 	}else
-		printf("EMPTY QUEUE\n");
+		printf("FILA VAZIA\n");
 }
 
 void deQueue(fila *queue)
@@ -124,29 +124,35 @@ void deQueue(fila *queue)
 	}
 }
 //como nossa estrutura só tem ->prox, fica um pouco trabalhoso remover no final
+
 void deQueueLast(fila *queue)
 {
-	if(queue->primeiro == NULL){printf("FILA VAZIA\n");}
+	if((queue->primeiro == NULL) && (queue->ultimo == NULL)){printf("FILA VAZIA\n");}
 	else
 	{
 		node *aux;
 		node *auxFinal;
-		aux = queue->primeiro;
+		aux = auxFinal = queue->primeiro;
 		while(aux->prox != NULL)
 		{
-			if(aux->prox != NULL)
-			{
-				auxFinal = aux;
-				printf("[%d]\n",auxFinal->info);
-			}
+			auxFinal = aux;
 			aux = aux->prox;
 		}
-		queue->ultimo = auxFinal;
-		printf("Valor deletado do Final:[%d]\n",(aux)->info);
-		auxFinal->prox = NULL;
-		free(aux);
+		if(aux == queue->primeiro)
+		{
+			printf("Valor deletado do Final:[%d]\n",(aux)->info);
+			queue->primeiro = queue->ultimo = NULL;
+			free(aux);
+		}else
+		{		
+			printf("Valor deletado do Final:[%d]\n",(aux)->info);
+			auxFinal->prox = NULL;
+			queue->ultimo = auxFinal;
+			free(aux);
+		}
 	}
 }
+
 //SE QUISER BOTAR UMA VARIAVEL COUNT PRA ACHAR A POSIÇÃO NA FILA
 void searchQueue(fila *queue)
 {

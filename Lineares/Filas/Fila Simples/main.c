@@ -3,18 +3,18 @@
 
 int main()//(int argc, char const *argv[])
 {
-	fila *F;
+	fila F;
 	int menu;
 	do
 	{
 		printf("\n\n ***** MENU *****");	
 		printf("\n 1: Create a Queue");	
 		printf("\n 2: Display the Queue");	
-		printf("\n 3: Add a File");
+		printf("\n 3: Add a Number");
 		printf("\n 4: Add at Head");
 		printf("\n 5: Remove at Tail");
-		printf("\n 6: Remove a File");	
-		printf("\n 7: Search a File");	
+		printf("\n 6: Remove a Number");	
+		printf("\n 7: Search a Number");	
 		printf("\n 8: Destroy");
 		printf("\n 9: Exit");	
 		printf("\n\n Enter your option : ");	
