@@ -19,7 +19,7 @@ int main()
 		printf("\n 8 : Remove Tail");		
 		printf("\n 9 : Remove Any Pos");
 		printf("\n 10 : Destroy List");
-		printf("\n 11: Search Element A");	
+		printf("\n 11: Search Element");	
 		printf("\n 0 : EXIT\n");		
 		scanf("%d",&menu);
 		switch(menu)
@@ -35,10 +35,9 @@ int main()
 				printList(&l);
 				break;
 			case 3:
-				system("clear");//THE BEST WAY IS TO CAPTURE THE DATA INSIDE THE FUNCTION....
-
+				system("clear");		 //THE BEST WAY IS TO CAPTURE THE DATA INSIDE THE FUNCTION....
 				printf("INSERT DATA:\n");//MORE ATTRACTIVE AND A GOOD CODING MANNERS
-				scanf("%d", &data);//AS WORKING WITH LEGACY THINGS....BUT I'M LAZY HIHIXD
+				scanf("%d", &data);		 //AS WORKING WITH LEGACY THINGS....BUT I'M LAZY HIHIXD
 				insertHead(&l,data);
 				break;
 			case 4:
