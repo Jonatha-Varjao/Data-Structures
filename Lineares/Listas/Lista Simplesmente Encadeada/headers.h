@@ -50,6 +50,12 @@ void removeAny(lista *l,int pos);
 //print a lista
 void printList(lista *l);
 
+//SORTING LIST USING SELECTION SORT
+void SSortList(lista *l);
+
+void swap(node *p1,node *p2);
+
+
 void emptyQueue(lista *l)
 {
 	if(l->head == NULL)printf("EMPTY\n");
@@ -265,6 +271,40 @@ void removeAny(lista *l,int pos)
 			}
 		}
 	}
+}
+
+
+void swap(node *p1,node *p2)
+{
+  int temp = p1->data;
+  p1->data = p2->data;
+  p2->data = temp;
+}
+
+//SELECTION-SORT
+void SSortList(lista *l)
+{
+	node *start = l->head;
+	node *traverse;
+	node *min;
+
+	while(start->next)
+	{
+		min = start;
+		traverse = start->next;
+		while(traverse)
+		{
+			if(min->data > traverse->data)
+			{
+				min = traverse;
+			}
+			traverse = traverse->next;
+		}
+		swap(start,min);
+		start = start->next;
+	}
+	printf("\nList Sorted\n");
+
 }
 
 
