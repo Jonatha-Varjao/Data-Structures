@@ -13,6 +13,8 @@ typedef struct lista
 	node *head,*tail;
 	int qtd;
 }lista;
+//swap function
+void swap(node *p1, node *p2);
 
 //lista vazia
 int emptyList(lista *l);
@@ -29,13 +31,31 @@ void insertBody(lista *l, int data);
 //inserir no final
 void insertTail(lista *l, int data);
 
-//inserir ordenado
-void ordenedInsert(lista *l, int data);
-
 //ordenar lista
 void sortList(lista *l);
 
+//imprimir a lista
 void printLista(lista *l);
+
+//remover inicio
+void removeHead(lista *l);
+
+//remover final
+void removeTail(lista *l);
+
+//imprimir (normal/inverso)
+void printLista(lista *l);
+void printListaReverse(lista *l);
+
+//destruir
+void destroy(lista *l);
+
+void swap(node *p1,node *p2)
+{
+  int temp = p1->data;
+  p1->data = p2->data;
+  p2->data = temp;
+}
 
 void createLista(lista *l)
 {
@@ -61,7 +81,7 @@ node *getNO(int data)
 
 void insertHead(lista *l, int data)
 {
-	if(l==NULL)
+	if(l->head==NULL)
 	{
 		node *new = (node*)malloc(sizeof(node));
 		new = getNO(data);
@@ -75,8 +95,55 @@ void insertHead(lista *l, int data)
 		l->head = new;
 	}
 }
-void insertTail(lista *l, int data);
 
+void insertTail(lista *l, int data)
+{
+	if(l->head == NULL)
+	{
+		node *new = (node*)malloc(sizeof(node));
+		new = getNO(data);
+		l->head = l->tail = new;
+	}else
+	{
+		node *new = (node*)malloc(sizeof(node));
+		new = getNO(data);
+		new->prev = l->tail;
+		l->tail->next = new;
+		l->tail = new;
+	}
+}
+
+void removeHead(lista *l)
+{
+	if(l->head == NULL)
+	{
+		printf("LISTA VAZIA");
+	}else
+	{
+		node *aux = l->head;
+		l->head = aux->next;
+		l->head->prev = NULL;
+		printf("\n[%d]removed\n",aux->data);
+		free(aux);
+	}
+}
+
+void removeTail(lista *l)
+{
+	if(l->head == NULL)
+	{
+		printf("LISTA VAZIA");
+	}else
+	{
+		node *aux = l->tail;
+		l->tail = aux->prev;
+		l->tail->next = NULL;
+		printf("\n[%d]removed\n",aux->data);
+		free(aux);
+	}
+}
+
+void sortList(lista *l)
 
 void printLista(lista *l)
 {
@@ -105,14 +172,3 @@ void printListaReverse(lista *l)
 		}
 	}else printf("EMPTY LIST\n");
 }
-//remover
-
-//remover inicio
-
-//remover meio
-
-//remover final
-
-//imprimir (normal/inverso)
-
-//destruir
