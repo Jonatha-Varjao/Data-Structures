@@ -1,50 +1,7 @@
-
+#include <stdlib.h>
 #include <stdio.h>
-#include <malloc.h>
-
-//estrutura com os dados
-typedef struct no
-{
-  int info;// ou um pointeiro void para valores heterogeneos
-  struct node *prox;
-}node;
-
-//ponteiros da fila (inicio,fim)
-typedef struct queue
-{
-  node *primeiro;
-  node *ultimo;
-}fila;
-
-// Funções da Fila e Funções Adicionais (DEQUE encadeado simples) // 
-
-//criar fila
-void createQeue(fila *queue);
-
-//Get NO
-node *getNO(int valor);
-
-//inserir
-void queue(fila *queue);
-//inserir inicio
-void queueFirst(fila *queue);
-
-//remover
-void deQueue(fila *queue);
-//remover final
-void deQueueLast(fila *queue);
-
-//imprimir fila
-void printQueue(fila *queue);
-
-//busca na fila
-void searchQueue(fila *queue);
-
-
-
-
-void createQeue(fila *queue){queue->primeiro = queue->ultimo = NULL;}
-
+#include <string.h>
+#include "headers.h"
 
 node *getNO(int valor)
 {
@@ -60,7 +17,7 @@ node *getNO(int valor)
 void queue(fila *queue)
 {
 	int data;
-	printf("Number:\n");
+	printf("Numero:\n");
 	scanf("%d", &data);
 	node *new = getNO(data);
 	if(queue->primeiro == NULL)
@@ -78,7 +35,7 @@ void queue(fila *queue)
 void queueFirst(fila *queue)
 {
 	int data;
-	printf("Number:\n");
+	printf("Numero:\n");
 	scanf("%d", &data);
 	node *new = getNO(data);
 	if(queue->primeiro == NULL)
@@ -96,7 +53,7 @@ void printQueue(fila *queue)
 
 	if(queue->primeiro !=NULL)
 	{
-		printf("Printing the Queue:\n");
+		printf("Print:\n");
 		node *aux = queue->primeiro;
 		if(queue!= NULL)
 		{
@@ -161,7 +118,7 @@ void searchQueue(fila *queue)
 	else
 	{
 		int data;
-		printf("Data to Search:\n");
+		printf("Pesquisa:\n");
 		scanf("%d", &data);
 		int pos = 1;
 		node *aux = queue->primeiro;
@@ -170,7 +127,7 @@ void searchQueue(fila *queue)
 			
 			if(aux->info == data)
 			{
-				printf("[%d]FOUND IN POSITION [%d]\n", data, pos);
+				printf("[%d] achado na posicao[%d]\n", data, pos);
 				break;
 			}
 			
@@ -179,7 +136,7 @@ void searchQueue(fila *queue)
 		}
 		if (aux == NULL)
 		{
-			printf("[%d]NOT FOUND\n", data);
+			printf("[%d] nao encontrado\n", data);
 		}
 	}
 }

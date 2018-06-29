@@ -1,4 +1,4 @@
-#include "headers.h"
+#include "headers.c"
 
 
 int main()//(int argc, char const *argv[])
@@ -8,21 +8,20 @@ int main()//(int argc, char const *argv[])
 	do
 	{
 		printf("\n\n ***** MENU *****");	
-		printf("\n 1: Create a Queue");	
-		printf("\n 2: Display the Queue");	
-		printf("\n 3: Add a Number");
-		printf("\n 4: Add at Head");
-		printf("\n 5: Remove at Tail");
-		printf("\n 6: Remove a Number");	
-		printf("\n 7: Search a Number");	
-		printf("\n 8: Destroy");
-		printf("\n 9: Exit");	
-		printf("\n\n Enter your option : ");	
+		printf("\n 1: Criar Fila");	
+		printf("\n 2: Printar a Fila");	
+		printf("\n 3: Adicionar um numero");
+		printf("\n 4: Adicionar no inicio");
+		printf("\n 5: Remover no final");
+		printf("\n 6: Remover");	
+		printf("\n 7: Procurar");	
+		printf("\n 8: Destruir");
+		printf("\n 9: SAIR");	
+		printf("\n\n Entre a opcao: ");	
 		scanf("%d", &menu);
 		switch(menu)
 		{
 			case 1:
-
 				system("clear");
 				createQeue(&F);
 				break;
@@ -57,7 +56,7 @@ int main()//(int argc, char const *argv[])
 		}
 	}while(menu != 9);
 
-	printf("Exiting\n");
+	printf("Saindo...\n");
 	
 	return 0;
 }

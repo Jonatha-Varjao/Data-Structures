@@ -1,19 +1,16 @@
-#ifndef HEADER_H
-#define HEADER_H
-
-#include <stdlib.h>
+#ifndef HEADERS_H
+#include <stdio.h>
+#include <malloc.h>
 
 //estrutura com os dados
 typedef struct node
 {
   int info;// ou um pointeiro void para valores heterogeneos
-  float prior;
   struct node *prox;
-  struct node *ant;
 }node;
 
 //ponteiros da fila (inicio,fim)
-typedef struct fila
+typedef struct queue
 {
   node *primeiro;
   node *ultimo;
@@ -25,14 +22,15 @@ typedef struct fila
 void createQeue(fila *queue);
 
 //Get NO
-node *getNO(int valor, float prior);
+node *getNO(int valor);
 
 //inserir
 void queue(fila *queue);
+//inserir inicio
+void queueFirst(fila *queue);
 
 //remover
 void deQueue(fila *queue);
-
 //remover final
 void deQueueLast(fila *queue);
 
@@ -42,6 +40,6 @@ void printQueue(fila *queue);
 //busca na fila
 void searchQueue(fila *queue);
 
-void createQeue(fila *queue);
+void createQeue(fila *queue){queue->primeiro = queue->ultimo = NULL;}
 
-#endif // !HEADER_H
+#endif 

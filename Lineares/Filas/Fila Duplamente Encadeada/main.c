@@ -1,9 +1,9 @@
-#include "headers.h"
+#include "headers.c"
 
-int main()//(int argc, char const *argv[])
+int main()
 {
-	//TODO CODE HERE//
-	fila *Queue;
+	
+	fila Queue;
 	createQeue(&Queue);
 	queue(&Queue,5);
 	queue(&Queue,8);

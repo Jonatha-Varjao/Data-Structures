@@ -1,50 +1,12 @@
-
+#include <stdlib.h>
 #include <stdio.h>
-#include <malloc.h>
+#include <string.h>
+#include "headers.h"
 
-//estrutura com os dados
-typedef struct no
+void createQeue(fila *queue)
 {
-  int info;// ou um pointeiro void para valores heterogeneos
-  struct node *prox;
-  struct node *ant;
-}node;
-
-//ponteiros da fila (inicio,fim)
-typedef struct queue
-{
-  node *primeiro;
-  node *ultimo;
-}fila;
-
-// Funções da Fila e Funções Adicionais (DEQUE encadeado simples) // 
-
-//criar fila
-void createQeue(fila *queue);
-
-//Get NO
-node *getNO(int valor);
-
-//inserir
-void queue(fila *queue, int data);
-//inserir inicio
-void queueFirst(fila *queue,int data);
-
-//remover
-void deQueue(fila *queue);
-//remover final
-void deQueueLast(fila *queue);
-
-//imprimir fila
-void printQueue(fila *queue);
-
-//busca na fila
-void searchQueue(fila *queue, int data);
-
-
-
-void createQeue(fila *queue){queue->primeiro = queue->ultimo = NULL;}
-
+    queue->primeiro = queue->ultimo = NULL;
+}
 
 node *getNO(int valor)
 {
@@ -75,7 +37,6 @@ void queue(fila *queue, int data)
 
 }
 
-//SE QUISER BOTAR UMA VARIAVEL COUNT PRA ACHAR A POSIÇÃO NA FILA
 void searchQueue(fila *queue, int data)
 {
 
@@ -89,7 +50,7 @@ void searchQueue(fila *queue, int data)
 			
 			if(aux->info == data)
 			{
-				printf("[%d]FOUND IN POSITION [%d]\n", data, pos);
+				printf("[%d] achado na posicao [%d]\n", data, pos);
 				break;
 			}
 			
@@ -98,7 +59,7 @@ void searchQueue(fila *queue, int data)
 		}
 		if (aux == NULL)
 		{
-			printf("[%d]NOT FOUND\n", data);
+			printf("[%d] nao encontrado\n", data);
 		}
 	}
 }
@@ -146,7 +107,6 @@ void deQueue(fila *queue)
 	}
 }
 
-//Doubled Link Queue, just use ->ant, pretty simple
 void deQueueLast(fila *queue)
 {
 	if(queue->primeiro == NULL){printf("FILA VAZIA\n");}
@@ -159,7 +119,6 @@ void deQueueLast(fila *queue)
 		free(aux);
 	}
 }
-
 
 void Destroy(fila *queue)
 {

@@ -1,4 +1,4 @@
-#include "headers.h"
+#include "headers.c"
 
 int main()
 {
@@ -8,21 +8,21 @@ int main()
 	do
 	{
 		printf("\n\n ***** MENU *****");
-		printf("\n 1: Create a Queue");	
-		printf("\n 2: Display the Queue");	
-		printf("\n 3: Add to the Queue");
-		printf("\n 4: Search Queue");	
-		printf("\n 5: Remove First");
-		printf("\n 6: Remove Tail");
-		printf("\n 7: Destroy the Priority Queue");	
-		printf("\n 8: EXIT");
-		printf("\n\n Enter your option: ");	
+		printf("\n 1: Criar a Fila");	
+		printf("\n 2: Printar a Fila");	
+		printf("\n 3: Adicionar");
+		printf("\n 4: Procurar");	
+		printf("\n 5: Remover Primeiro");
+		printf("\n 6: Remover Ultimo");
+		printf("\n 7: Destruir a Fila");	
+		printf("\n 8: Sair");
+		printf("\n\n Entre a opcao: ");	
 		scanf("%d", &menu);
 		switch(menu)
 		{
 			case 1:
 				system("clear");
-				printf("Initializing Priority Queue\n");
+				printf("Inicializando a Fila\n");
 				createQeue(&Queue);
 				break;
 			case 2:
@@ -52,7 +52,7 @@ int main()
 				break;
 		}
 	}while(menu != 8);
-	printf("EXITING\n");
+	printf("SAINDO..\n");
 	return 0;
 }
 

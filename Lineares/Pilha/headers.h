@@ -1,7 +1,8 @@
 #include <stdio.h>
 #define MAX 100 
 #include <string.h>
-int top,stackString[MAX];
+int top, stackString[MAX];
+
 typedef struct node
 {
 	char data;
