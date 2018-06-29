@@ -1,2 +1,2 @@
 # Data-Structures
-Some generic data structures
+Some classic data structures implemented in C
