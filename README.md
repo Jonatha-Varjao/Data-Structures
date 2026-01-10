@@ -14,7 +14,11 @@
   - Duplamente Encadeada
 - Pilha
 
-  
-   
+
+### Não Lineares
+- Árvores
+  - AVL
+  - Binária
+
 
 
