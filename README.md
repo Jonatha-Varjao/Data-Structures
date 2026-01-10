@@ -21,12 +21,25 @@
   - Binária
 
 
-##### Casos de Uso
+##### Casos de Uso Implementados
 
 - Impressora com Prioridade
   - Fila com Prioridade
 - Torre de Hanoi
   - Pilha 
 
+### TODO:
+
+#### Estruturas:
+- RB Tree
+- B/B+
+- Grafos
+    - Matriz de Adjacência
+    - BFS
+    - DFS
+    - Dijkstra/Kruskal/Prim
+- Heap
+- Arvore de Prefixos (Trie)
+- Arvore de Segmentos (Segment Tree)
 
 
