@@ -29,6 +29,8 @@
   - Pilha 
 
 ### TODO:
+- Implementar Testes em C
+- Deixar em Inglês
 
 #### Estruturas:
 - RB Tree
