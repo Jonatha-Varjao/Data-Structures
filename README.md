@@ -21,4 +21,12 @@
   - Binária
 
 
+##### Casos de Uso
+
+- Impressora com Prioridade
+  - Fila com Prioridade
+- Torre de Hanoi
+  - Pilha 
+
+
 
