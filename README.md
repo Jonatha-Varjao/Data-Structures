@@ -41,5 +41,11 @@
 - Heap
 - Arvore de Prefixos (Trie)
 - Arvore de Segmentos (Segment Tree)
+- Implementar em outras langs?
 
-
+#### Casos de Uso:
+- Cache LRU 
+- Undo/Redo Text Editor Function
+- Percuros Não-Recursivos: in-order, pre-order, post-order (Tree)
+- Indexador de Busca de Texto Simples
+- Árvore Geradora Mínima
