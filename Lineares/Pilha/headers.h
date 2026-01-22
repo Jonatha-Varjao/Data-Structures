@@ -2,7 +2,7 @@
 #define HEADERS_H
 
 #include <stdio.h>
-#define MAX 100 
+#define MAX 100
 #include <string.h>
 int top, stackString[MAX];
 
@@ -10,33 +10,33 @@ typedef struct node
 {
 	char data;
 	struct node *prox;
-}node;
+} node;
 
 typedef struct pilha
 {
 	node *topo;
 	int tam;
-}stack;
+} stack;
 
-//criar pilha
+// criar pilha
 void createStack(stack *p);
 
-//pilha vazia
+// pilha vazia
 void isEmpty(stack *p);
 
-//empilha
+// empilha
 void push(stack *p);
 
-//desempilha
+// desempilha
 void pop(stack *p);
 
-//imprime pilha
+// imprime pilha
 void printStack(stack *p);
 
-//procura na pilha
+// procura na pilha
 void search(stack *p);
 
-//destruir pilha
+// destruir pilha
 void deleteStack(stack *p);
 
 #endif // !HEADERS_H
